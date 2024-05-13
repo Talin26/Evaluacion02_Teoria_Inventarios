@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed:wght@200..900&display=swap');
+
+body{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background-color: #00FEEE;
+  font-family: "Reddit Sans Condensed", sans-serif;
+}
+
+.contenedor_principal{
+  width: 100%;
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid 2px black;
+  border-radius: 40px;
+  padding: 100px 30px;
+  margin: 142px auto;
+  font-family: "Reddit Sans Condensed", sans-serif;
+  background-color: #e4e4e4;
+}
+
+.contenedor_principal #btn_iniciar{
+  background-color: blueviolet;
+  padding: 10px 30px;
+  font-size: 18px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.contenedor_principal #btn_iniciar:hover{
+  cursor: pointer;
+}
+
+.contenedor_principal #btn_iniciar:active{
+  background-color: white;
+  color: blueviolet;
+  font-weight: bold;
+}
+
+footer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  background-color: #00FEEE;
+  font-family: "Reddit Sans Condensed", sans-serif;
+}
+
+.integrantes_footer h3{
+  margin-left: 5px;
+}
+
+.integrantes_footer ul{
+  padding: 0;
+}
+
+.integrantes_footer ul li{
+  padding: 5px;
+  list-style: none;
+}
