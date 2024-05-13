@@ -15,6 +15,9 @@
       <div class="buscar_y_botones">
         <button class="botones" id="btn-inicio">Inicio</button>
         <button class="botones" id="btn-crearProducto">Crear Producto</button>
+        <button class="botones" id="btn-incrementar">Aumentar producto</button>
+        <button class="botones" id="btn-decrementar">Disminuir producto</button>
+        <button class="botones" id="btn-eliminar">Eliminar producto</button>
         <button class="botones" id="btn-buscar">Buscar</button>
         <input id="buscador" type="text" placeholder="Ingresa el ID del producto"/>
       </div>
@@ -28,8 +31,8 @@
         <th id="casilla-nombre">Nombre</th>
         <th id="casilla-precio">Precio</th>
         <th id="casilla-cantidad">Cantidad</th>
-        <th>Total</th>
-        <th colspan="2">Acción</th>
+        <th id="casilla-total">Total</th>
+        
       </tr>
       <tr>
         <td>3</td>
@@ -37,11 +40,27 @@
         <td>hola</td>
         <td>hola</td>
         <td>hola</td>
-        <td>hola</td>
-        <td>hola</td>
       </tr>
-      
     </table>
+    <dialog class="formularios-ocultos" id="formulario-crear">
+      <h2>Crear nuevo producto</h2>
+      <input type="text" placeholder="Ingrese el nombre del producto">
+      <input type="text" placeholder="Ingrese el precio unitario ">
+      <input type="text" placeholder="Ingrese la cantidad">
+      <div id="botones-formulario-crear">
+        <button class="botones-ocultos-formularios" id="btn-regresar-producto">Regresar</button>
+        <button class="botones-ocultos-formularios" id="btn-agregar-producto">Agregar</button>
+      </div>
+    </dialog>
+    <dialog class="formularios-ocultos" id="formulario-editar">
+      <input type="text" placeholder="Ingrese el ID del producto">
+      <input type="text" placeholder="Ingrese la cantidad">
+      <div>
+        <button class="botones-ocultos-formularios" id="btn-regresar-editar">Regresar</button>
+        <button class="botones-ocultos-formularios" id="btn-buscar-id">Buscar Producto</button>
+        <button class="botones-ocultos-formularios" id="btn-editar-producto">Editar</button>
+      </div>
+    </dialog>
     <footer>
       <div class="integrantes_footer">
         <h3>Integrantes</h3>
