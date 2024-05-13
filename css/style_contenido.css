@@ -9,7 +9,7 @@
 .titulo_y_buscar{
   width: 100%;
   max-width: 85%;
-  margin: 150px auto 0;
+  margin: 170px auto 0;
   background-color: white;
   display: flex;
   flex-direction: row;
@@ -62,7 +62,7 @@
 table{
   width: 100%;
   max-width: 85%;
-  margin: 0 auto;
+  margin: 0 auto 326px;
   text-align: center;
   border-collapse: collapse;
 }
@@ -149,4 +149,8 @@ td{
 .formularios-ocultos .botones-ocultos-formularios:active{
   background-color: blueviolet;
   color:white;
+}
+
+.formularios-ocultos::backdrop{
+  background-color: rgba(0, 0, 0, 0.57);
 }
