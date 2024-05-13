@@ -1,0 +1,16 @@
+.titulo_y_buscar{
+  width: 100%;
+  max-width: 85%;
+  margin: 150px auto;
+  background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buscar_y_botones .botones{
+  margin-right: 5px;
+  font-size: 18px;
+  
+}

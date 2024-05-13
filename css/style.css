@@ -17,6 +17,9 @@ header{
   margin: 0;
   background-color: #00FEEE;
   font-family: "Reddit Sans Condensed", sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .contenedor_principal{
@@ -27,30 +30,49 @@ header{
   align-items: center;
   justify-content: center;
   border: solid 2px black;
-  border-radius: 40px;
+  border-radius: 60px;
   padding: 100px 30px;
-  margin: 142px auto;
+  margin: 200px auto;
   font-family: "Reddit Sans Condensed", sans-serif;
   background-color: #e4e4e4;
 }
 
 .contenedor_principal #btn_iniciar{
   background-color: blueviolet;
-  padding: 10px 30px;
-  font-size: 18px;
+  padding: 10px 0;
+  font-size: 20px;
   border-radius: 20px;
-  color: white;
   font-weight: bold;
+  border: solid 2px blueviolet;
 }
 
 .contenedor_principal #btn_iniciar:hover{
   cursor: pointer;
-}
-
-.contenedor_principal #btn_iniciar:active{
   background-color: white;
   color: blueviolet;
   font-weight: bold;
+  border: solid 2px blueviolet;
+}
+
+.contenedor_principal #btn_iniciar:active{
+  background-color: blueviolet;
+  color: white;
+  font-weight: bold;
+  border: solid 2px blueviolet;
+}
+
+.contenedor_principal #btn_iniciar a{
+  text-decoration: none;
+  color: white;
+  padding: 20px 30px;
+}
+
+.contenedor_principal #btn_iniciar a:hover{
+  color: blueviolet;
+}
+
+.contenedor_principal #btn_iniciar a:active{
+  color: white;
 }
 
 footer{
@@ -59,7 +81,7 @@ footer{
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  padding: 0;
+  padding: 10px 0;
   margin: 0;
   background-color: #00FEEE;
   font-family: "Reddit Sans Condensed", sans-serif;
@@ -74,6 +96,23 @@ footer{
 }
 
 .integrantes_footer ul li{
-  padding: 5px;
+  padding: 3px;
   list-style: none;
+}
+
+.universidad_logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.universidad_logo img{
+  width: 80px;
+  height: 80px;
+  margin-left: 30px;
+}
+
+.universidad_footer p{
+  margin: 0;
 }
