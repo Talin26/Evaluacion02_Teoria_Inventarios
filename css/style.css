@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed:wght@200..900&display=swap');
 
+:root{
+  --color-interfaz: #e4e4e4;
+  --color-headerFooter: #00FEEE;
+}
+
 body{
   width: 100%;
   padding: 0;
@@ -15,7 +20,7 @@ header{
   justify-content: center;
   padding: 0;
   margin: 0;
-  background-color: #00FEEE;
+  background-color: var(--color-headerFooter);
   font-family: "Reddit Sans Condensed", sans-serif;
   position: fixed;
   top: 0;
@@ -34,7 +39,7 @@ header{
   padding: 100px 30px;
   margin: 200px auto;
   font-family: "Reddit Sans Condensed", sans-serif;
-  background-color: #e4e4e4;
+  background-color: var(--color-interfaz);
 }
 
 .contenedor_principal #btn_iniciar{
@@ -83,7 +88,7 @@ footer{
   justify-content: space-around;
   padding: 10px 0;
   margin: 0;
-  background-color: #00FEEE;
+  background-color: var(--color-headerFooter);
   font-family: "Reddit Sans Condensed", sans-serif;
 }
 
