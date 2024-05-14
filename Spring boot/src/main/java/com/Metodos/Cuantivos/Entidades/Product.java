@@ -15,5 +15,6 @@ public class Product {
     private Long CodigoProducto;
     private Integer Cantidad;
     private String productDescription;
-    private Double uniPrice;
+    private Double UniPrice;
+    private Double Total;
 }
