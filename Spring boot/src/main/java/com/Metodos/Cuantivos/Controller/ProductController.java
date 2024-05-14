@@ -18,36 +18,37 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
-    @GetMapping("/Buscar/{id}")
+    @GetMapping("/Buscar/{CodigoProducto}")
     public Product buscar(@PathVariable Long CodigoProducto){
        return productService.findById(CodigoProducto).orElseThrow(null);
     }
 
-    @PutMapping("/Sacar/{id}/{cantidad}")
-    public ResponseEntity<?> Sacar(@PathVariable Long codigo,@PathVariable Integer Cantidad) {
-        Product product = productService.findById(codigo).orElseThrow(null);
+    @PutMapping("/Sacar/{CodigoProducto}/{cantidad}")
+    public ResponseEntity<?> Sacar(@PathVariable Long CodigoProducto,@PathVariable Integer cantidad) {
+        Product product = productService.findById(CodigoProducto).orElseThrow(null);
 
         if (product == null) {
             return ResponseEntity.noContent().build();
         }
-        Boolean cierto = product.getTotal() > Cantidad;
-        if (cierto = false) {
+
+        if (product.getCantidad() < cantidad) {
             return ResponseEntity.badRequest().body("No hay esa cantidad ");
+        } else {
+            product.setCantidad(product.getCantidad() - cantidad);
+            productService.save(product);
+            return ResponseEntity.ok("Cantidad Sacada del inventario");
         }
-        product.setCantidad(product.getCantidad() - Cantidad);
-        productService.save(product);
-        return ResponseEntity.ok("Cantidad Sacada del inventario");
 
     }
-    @PutMapping("/Meter/{id}/{cantidad}")
-    public ResponseEntity<?> Meter(@PathVariable Long codigo,@PathVariable Integer Cantidad) {
-        Product product = productService.findById(codigo).orElseThrow(null);
+    @PutMapping("/Meter/{CodigoProducto}/{cantidad}")
+    public ResponseEntity<?> Meter(@PathVariable Long CodigoProducto,@PathVariable Integer cantidad) {
+        Product product = productService.findById(CodigoProducto).orElseThrow(null);
 
         if (product == null) {
             return ResponseEntity.noContent().build();
         }
 
-        product.setCantidad(product.getCantidad()+Cantidad);
+        product.setCantidad(product.getCantidad()+cantidad);
         productService.save(product);
         return ResponseEntity.ok("Cantidad Metida del inventario");
 
