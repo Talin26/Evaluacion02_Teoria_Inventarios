@@ -50,6 +50,19 @@ btnCerrarEliminarProducto.addEventListener("click", ()=>{
     formularioEliminarProducto.close();
 });
 
+//BOTON CALCULAR EOQ
+let btnAbrirCalcularEoq = document.querySelector("#btn-eoq");
+let btnCerrarCalcularEoq= document.querySelector("#btn-regresar-eoq");
+let formularioCalcularEoq = document.querySelector("#formulario-eoq");
+
+btnAbrirCalcularEoq.addEventListener("click", ()=>{
+    formularioCalcularEoq.showModal();
+});
+
+btnCerrarCalcularEoq.addEventListener("click", ()=>{
+    formularioCalcularEoq.close();
+});
+
 let btnPaginaPrincipal = document.querySelector("#btn-inicio");
 
 btnPaginaPrincipal.addEventListener("click", ()=>{
