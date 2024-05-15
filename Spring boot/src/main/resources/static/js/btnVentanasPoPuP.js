@@ -121,6 +121,7 @@ document.getElementById('btn-agregar-producto').addEventListener('click', functi
         return response.json();
     })
     .then(data => {
+        cargarTabla();
         formularioCrearProducto.close();
         Swal.fire({
             icon: 'success',
@@ -153,6 +154,7 @@ document.getElementById('btn-aumentar-producto').addEventListener('click', funct
     })
     .then(data => {
         // Muestra un mensaje de éxito usando SweetAlert
+        cargarTabla();
         formularioAumentarProducto.close();
         Swal.fire({
             icon: 'success',
