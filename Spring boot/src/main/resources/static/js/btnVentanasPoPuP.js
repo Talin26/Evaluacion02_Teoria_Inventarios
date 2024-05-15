@@ -56,7 +56,7 @@ btnPaginaPrincipal.addEventListener("click", ()=>{
     window.location = "index.html";
 })
 
-document.addEventListener("DOMContentLoaded", function() {
+cargarTabla = () =>{
     console.log('DOM fully loaded and parsed');
     fetch('http://localhost:8080/api/productos') // Corregido el endpoint
         .then(response => response.json())
@@ -76,4 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         })
         .catch(error => console.error('Error fetching data:', error));
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+   cargarTabla();
 });
