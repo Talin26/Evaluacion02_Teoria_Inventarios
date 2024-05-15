@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -53,4 +55,8 @@ public class ProductController {
         return ResponseEntity.ok("Cantidad Metida del inventario");
 
 }
+@GetMapping("/productos")
+    public List<Product> getAllProducts() {
+        return productService.findAll();
+    }
     }
