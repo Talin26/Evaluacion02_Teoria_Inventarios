@@ -55,3 +55,25 @@ let btnPaginaPrincipal = document.querySelector("#btn-inicio");
 btnPaginaPrincipal.addEventListener("click", ()=>{
     window.location = "index.html";
 })
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log('DOM fully loaded and parsed');
+    fetch('http://localhost:8080/api/productos') // Corregido el endpoint
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const table = document.querySelector('table tbody'); // Selecciona el tbody en lugar de la tabla directamente
+            data.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.codigoProducto}</td>
+                    <td>${product.productDescription}</td>
+                    <td>${product.uniPrice}</td>
+                    <td>${product.cantidad}</td>
+                    <td>${product.total}</td>
+                `;
+                table.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+});
