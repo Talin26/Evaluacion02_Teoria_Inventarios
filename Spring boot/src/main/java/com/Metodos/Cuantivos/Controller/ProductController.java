@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProductController {
     @Autowired
     private ProductService productService;
@@ -49,8 +52,13 @@ public class ProductController {
         }
 
         product.setCantidad(product.getCantidad()+cantidad);
+        product.setTotal(product.getCantidad()*product.getUniPrice());
         productService.save(product);
         return ResponseEntity.ok("Cantidad Metida del inventario");
 
 }
+@GetMapping("/productos")
+    public List<Product> getAllProducts() {
+        return productService.findAll();
+    }
     }

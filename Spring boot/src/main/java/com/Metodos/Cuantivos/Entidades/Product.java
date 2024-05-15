@@ -13,8 +13,10 @@ import lombok.NoArgsConstructor;
 @Table(name="Product")
 public class Product {
     @Id
-    @Column(unique=true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Long codigoProducto;
+    
     private Integer cantidad;
     private String productDescription;
     private Double UniPrice;
