@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style_contenido.css">
     <link rel="shortcut icon" href="imagenes/logosistema.png" type="image/x-icon">
     <title>Datos del Sistema</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <header>
@@ -45,16 +46,16 @@
         <button class="botones-ocultos-formularios" id="btn-agregar-producto">Agregar</button>
     </div>
 </dialog>
-    <dialog class="formularios-ocultos" id="formulario-aumentar">
-      <h2>Aumentar Cantidad de Producto</h2>
-      <input type="text" placeholder="Ingrese el ID del producto">
-      <input type="text" placeholder="Ingrese la cantidad">
-      <div>
-        <button class="botones-ocultos-formularios" id="btn-regresar-aumentar">Regresar</button>
-        <button class="botones-ocultos-formularios" id="btn-buscar-id-aumentar">Buscar Producto</button>
-        <button class="botones-ocultos-formularios" id="btn-aumentar-producto">Aumentar</button>
-      </div>
-    </dialog>
+<dialog class="formularios-ocultos" id="formulario-aumentar">
+  <h2>Aumentar Cantidad de Producto</h2>
+  <input type="text" id="idProducto" placeholder="Ingrese el ID del producto">
+  <input type="number" id="cantidadAumentar" placeholder="Ingrese la cantidad">
+  <div>
+      <button class="botones-ocultos-formularios" id="btn-regresar-aumentar">Regresar</button>
+      <button class="botones-ocultos-formularios" id="btn-buscar-id-aumentar">Buscar Producto</button>
+      <button class="botones-ocultos-formularios" id="btn-aumentar-producto">Aumentar</button>
+  </div>
+</dialog>
     <dialog class="formularios-ocultos" id="formulario-quitar">
       <h2>Quitar Cantidad de Producto</h2>
       <input type="text" placeholder="Ingrese el ID del producto">

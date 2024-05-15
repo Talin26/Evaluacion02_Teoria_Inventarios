@@ -121,12 +121,52 @@ document.getElementById('btn-agregar-producto').addEventListener('click', functi
         return response.json();
     })
     .then(data => {
-        console.log('Producto creado:', data);
-        // Aquí puedes hacer algo con la respuesta, como mostrar un mensaje de éxito o redireccionar a otra página
-        cargarTabla();
+        formularioCrearProducto.close();
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: 'Producto creado exitosamente',
+        });
     })
     .catch(error => {
         console.error('Error al crear el producto:', error);
-        // Aquí puedes mostrar un mensaje de error al usuario
+        // Muestra un mensaje de error al usuario
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Hubo un problema al crear el producto',
+        });
+    });
+});
+document.getElementById('btn-aumentar-producto').addEventListener('click', function() {
+    const idProducto = document.getElementById('idProducto').value;
+    const cantidadAumentar = document.getElementById('cantidadAumentar').value;
+
+    fetch(`http://localhost:8080/api/Meter/${idProducto}/${cantidadAumentar}`, {
+        method: 'PUT'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al aumentar la cantidad del producto');
+        }
+        return response.text();
+    })
+    .then(data => {
+        // Muestra un mensaje de éxito usando SweetAlert
+        formularioAumentarProducto.close();
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: 'Cantidad aumentada exitosamente',
+        });
+    })
+    .catch(error => {
+        console.error('Error al aumentar la cantidad del producto:', error);
+        // Muestra un mensaje de error al usuario
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Hubo un problema al aumentar la cantidad del producto',
+        });
     });
 });

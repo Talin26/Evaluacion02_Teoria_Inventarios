@@ -52,6 +52,7 @@ public class ProductController {
         }
 
         product.setCantidad(product.getCantidad()+cantidad);
+        product.setTotal(product.getCantidad()*product.getUniPrice());
         productService.save(product);
         return ResponseEntity.ok("Cantidad Metida del inventario");
 
