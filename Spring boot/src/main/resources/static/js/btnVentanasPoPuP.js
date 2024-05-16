@@ -234,6 +234,7 @@ document.getElementById('btn-decrementar-producto').addEventListener('click', fu
     })
     .then(data => {
         // Muestra un mensaje de éxito usando SweetAlert
+        cargarTabla();
         formularioQuitarProducto.close();
         Swal.fire({
             icon: 'success',
