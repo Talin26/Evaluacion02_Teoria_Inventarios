@@ -259,4 +259,9 @@ document.getElementById('btn-eoq').addEventListener('click', function() {
     let costoPedido = getRandomInt(1, 50) * getRandomInt(1, 50)
     let costoAlmacenamiento = getRandomInt(1, 50) 
     let eoq = Math.round( Math.sqrt( (2 * demanda * costoPedido) / costoAlmacenamiento ) )
+    let cantidad = 0 //Aqui saca la cantidad de la api
+    let numeroPedidos = Math.round( (demanda - cantidad) / eoq )
+    let cantidadPedir =  (numeroPedidos * eoq) 
+    eoq = (cantidadPedir + cantidad >= demanda) ? eoq :  Math.round((demanda - cantidadPedir - cantidad )/ numeroPedidos) + eoq
+    document.getElementById("txt-eoq").innerHTML = `El EOQ del producto es ${eoq} y la cantidad de pedidos a realizar es de ${numeroPedidos}`
 });
