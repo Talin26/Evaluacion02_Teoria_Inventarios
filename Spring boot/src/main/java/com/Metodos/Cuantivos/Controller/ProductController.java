@@ -38,11 +38,30 @@ public class ProductController {
             return ResponseEntity.badRequest().body("No hay esa cantidad ");
         } else {
             product.setCantidad(product.getCantidad() - cantidad);
+            product.setTotal(product.getCantidad()*product.getUniPrice());
             productService.save(product);
             return ResponseEntity.ok("Cantidad Sacada del inventario");
         }
 
     }
+    /*
+    @PutMapping("/Sacar/{CodigoProducto}/{cantidad}")
+    public ResponseEntity<?> Sacar(@PathVariable Long CodigoProducto,@PathVariable Integer cantidad) {
+        Product product = productService.findById(CodigoProducto).orElseThrow(null);
+
+        if (product == null) {
+            return ResponseEntity.noContent().build();
+        }
+
+        if (product.getCantidad() < cantidad) {
+            return ResponseEntity.badRequest().body("No hay esa cantidad ");
+        } else {
+            product.setCantidad(product.getCantidad() - cantidad);
+            productService.save(product);
+            return ResponseEntity.ok("Cantidad Sacada del inventario");
+        }
+
+    }*/
     @PutMapping("/Meter/{CodigoProducto}/{cantidad}")
     public ResponseEntity<?> Meter(@PathVariable Long CodigoProducto,@PathVariable Integer cantidad) {
         Product product = productService.findById(CodigoProducto).orElseThrow(null);
