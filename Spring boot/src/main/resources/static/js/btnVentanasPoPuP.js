@@ -219,7 +219,7 @@ document.getElementById('btn-eliminar-producto').addEventListener('click', funct
     });
 });
 
-document.getElementById('btn-decrementar-producto').addEventListener('click', function() {
+document.getElementById('btn-quitar-producto').addEventListener('click', function() {
     const idProductoDecrementar = document.getElementById('idProductoDecrementar').value;
     const cantidadDecrementar = document.getElementById('cantidadDecrementar').value;
 
