@@ -260,13 +260,49 @@ function getRandomInt(min, max) {
 
 //Calcular eoq
 document.getElementById('btn-calcular-eoq').addEventListener('click', function() {
-    let demanda = (Math.floor(Math.random() * (20 - 1 + 1)) + 1) * 1000
-    let costoPedido = (Math.floor(Math.random() * (50 - 1 + 1)) + 1) * (Math.floor(Math.random() * (50 - 1 + 1)) + 1) 
-    let costoAlmacenamiento = (Math.floor(Math.random() * (50 - 1 + 1)) + 1)
-    let eoq = Math.round( Math.sqrt( (2 * demanda * costoPedido) / costoAlmacenamiento ) )
-    let cantidad = 0 //Aqui saca la cantidad de la api
-    let numeroPedidos = Math.round( (demanda - cantidad) / eoq )
-    let cantidadPedir =  (numeroPedidos * eoq) 
-    eoq = (cantidadPedir + cantidad >= demanda) ? eoq :  Math.round((demanda - cantidadPedir - cantidad )/ numeroPedidos) + eoq
-    document.getElementById('txt-resultado').innerHTML = `El EOQ del producto es ${eoq} y la cantidad de pedidos a realizar es de ${numeroPedidos}`
-});
+
+    const codigoProducto = document.getElementById('cal-eoq').value;
+
+    fetch(http://localhost:8080/api/Buscar/${codigoProducto}, {
+        method: 'GET'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al decrementar la cantidad del producto');
+        }
+        return response.text();
+    })
+    .then(data => {
+        data = JSON.parse(data);
+        console.log(data.cantidad);
+    
+        let demanda = (Math.floor(Math.random() * (20 - 1 + 1)) + 1) * 1000;
+        let costoPedido = (Math.floor(Math.random() * (50 - 1 + 1)) + 1) * (Math.floor(Math.random() * (50 - 1 + 1)) + 1);
+        let costoAlmacenamiento = (Math.floor(Math.random() * (50 - 1 + 1)) + 1);
+        let eoq = Math.round(Math.sqrt((2 * demanda * costoPedido) / costoAlmacenamiento));
+        let cantidad = parseInt(data.cantidad);
+        let numeroPedidos = Math.round((demanda - cantidad) / eoq);
+        let cantidadPedir = (numeroPedidos * eoq);
+        eoq = (cantidadPedir + cantidad >= demanda) ? eoq : Math.round((demanda - cantidadPedir - cantidad) / numeroPedidos) + eoq;
+    
+        // Construir el mensaje a mostrar
+        const mensaje = El EOQ del producto es ${eoq} y la cantidad de pedidos a realizar es de ${numeroPedidos};
+        formularioCalcularEoq.close();
+        // Mostrar el mensaje con Swal.fire
+        Swal.fire({
+            icon: 'info',
+            title: 'Información',
+            text: mensaje
+        });
+    })
+    
+    .catch(error => {
+        console.error('Hubo un problema al encontrar el producto:', error);
+        // Muestra un mensaje de error al usuario
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Hubo un problema al encontrar el producto',
+        });
+    });
+})
