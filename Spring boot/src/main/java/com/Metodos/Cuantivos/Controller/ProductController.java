@@ -61,4 +61,17 @@ public class ProductController {
     public List<Product> getAllProducts() {
         return productService.findAll();
     }
+
+    @DeleteMapping("/Eliminar/{CodigoProducto}")
+    public ResponseEntity<?> eliminar(@PathVariable Long CodigoProducto) {
+        Product product = productService.findById(CodigoProducto).orElseThrow(null);
+
+        if (product == null) {
+            return ResponseEntity.noContent().build();
+        }
+
+        productService.deleteById(CodigoProducto);
+        return ResponseEntity.ok("Producto eliminado exitosamente");
+}
+
     }
