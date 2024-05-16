@@ -185,3 +185,72 @@ document.getElementById('btn-aumentar-producto').addEventListener('click', funct
         });
     });
 });
+
+document.getElementById('btn-eliminar-producto').addEventListener('click', function() {
+    const idProductoEliminar = document.getElementById('idProductoEliminar').value;
+
+    fetch(`http://localhost:8080/api/Eliminar/${idProductoEliminar}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al eliminar el producto');
+        }
+        return response.text();
+    })
+    .then(data => {
+        // Muestra un mensaje de éxito usando SweetAlert
+        cargarTabla();
+        formularioEliminarProducto.close();
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: 'Producto eliminado exitosamente',
+        });
+    })
+    .catch(error => {
+        console.error('Error al eliminar el producto:', error);
+        // Muestra un mensaje de error al usuario
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Hubo un problema al eliminar el producto',
+        });
+    });
+});
+
+document.getElementById('btn-quitar-producto').addEventListener('click', function() {
+    const idProductoDecrementar = document.getElementById('idProductoDecrementar').value;
+    const cantidadDecrementar = document.getElementById('cantidadDecrementar').value;
+
+    fetch(`http://localhost:8080/api/Sacar/${idProductoDecrementar}/${cantidadDecrementar}`, {
+        method: 'PUT'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al decrementar la cantidad del producto');
+        }
+        return response.text();
+    })
+    .then(data => {
+        // Muestra un mensaje de éxito usando SweetAlert
+        cargarTabla();
+        formularioQuitarProducto.close();
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: 'Cantidad decrementada exitosamente',
+        });
+    })
+    .catch(error => {
+        console.error('Error al decrementar la cantidad del producto:', error);
+        // Muestra un mensaje de error al usuario
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Hubo un problema al decrementar la cantidad del producto',
+        });
+    });
+});
+
+
