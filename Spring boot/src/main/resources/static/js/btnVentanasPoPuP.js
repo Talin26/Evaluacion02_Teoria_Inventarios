@@ -253,4 +253,10 @@ document.getElementById('btn-quitar-producto').addEventListener('click', functio
     });
 });
 
-
+//Calcular eoq
+document.getElementById('btn-eoq').addEventListener('click', function() {
+    let demanda = getRandomInt(1, 20) * 1000
+    let costoPedido = getRandomInt(1, 50) * getRandomInt(1, 50)
+    let costoAlmacenamiento = getRandomInt(1, 50) 
+    let eoq = Math.round( Math.sqrt( (2 * demanda * costoPedido) / costoAlmacenamiento ) )
+});

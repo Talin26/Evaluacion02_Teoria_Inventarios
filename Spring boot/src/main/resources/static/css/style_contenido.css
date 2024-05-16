@@ -141,6 +141,13 @@ td{
   cursor: pointer;
 }
 
+.txt-eoq {
+  font-family: "Reddit Sans Condensed", sans-serif;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+}
+
 .formularios-ocultos .botones-ocultos-formularios:hover{
   background-color: white;
   color: blueviolet;
