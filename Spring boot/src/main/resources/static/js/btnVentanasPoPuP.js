@@ -268,6 +268,5 @@ document.getElementById('btn-calcular-eoq').addEventListener('click', function()
     let numeroPedidos = Math.round( (demanda - cantidad) / eoq )
     let cantidadPedir =  (numeroPedidos * eoq) 
     eoq = (cantidadPedir + cantidad >= demanda) ? eoq :  Math.round((demanda - cantidadPedir - cantidad )/ numeroPedidos) + eoq
-    console.log(`El EOQ del producto es ${eoq} y la cantidad de pedidos a realizar es de ${numeroPedidos}`)
-    //document.getElementById('txt-eoq').innerHTML = `El EOQ del producto es ${eoq} y la cantidad de pedidos a realizar es de ${numeroPedidos}`
+    document.getElementById('txt-resultado').innerHTML = `El EOQ del producto es ${eoq} y la cantidad de pedidos a realizar es de ${numeroPedidos}`
 });
