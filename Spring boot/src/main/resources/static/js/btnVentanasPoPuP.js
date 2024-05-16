@@ -253,15 +253,21 @@ document.getElementById('btn-quitar-producto').addEventListener('click', functio
     });
 });
 
+//Sacar numero random 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
 //Calcular eoq
-document.getElementById('btn-eoq').addEventListener('click', function() {
-    let demanda = getRandomInt(1, 20) * 1000
-    let costoPedido = getRandomInt(1, 50) * getRandomInt(1, 50)
-    let costoAlmacenamiento = getRandomInt(1, 50) 
+document.getElementById('btn-calcular-eoq').addEventListener('click', function() {
+    let demanda = (Math.floor(Math.random() * (20 - 1 + 1)) + 1) * 1000
+    let costoPedido = (Math.floor(Math.random() * (50 - 1 + 1)) + 1) * (Math.floor(Math.random() * (50 - 1 + 1)) + 1) 
+    let costoAlmacenamiento = (Math.floor(Math.random() * (50 - 1 + 1)) + 1)
     let eoq = Math.round( Math.sqrt( (2 * demanda * costoPedido) / costoAlmacenamiento ) )
     let cantidad = 0 //Aqui saca la cantidad de la api
     let numeroPedidos = Math.round( (demanda - cantidad) / eoq )
     let cantidadPedir =  (numeroPedidos * eoq) 
     eoq = (cantidadPedir + cantidad >= demanda) ? eoq :  Math.round((demanda - cantidadPedir - cantidad )/ numeroPedidos) + eoq
-    document.getElementById("txt-eoq").innerHTML = `El EOQ del producto es ${eoq} y la cantidad de pedidos a realizar es de ${numeroPedidos}`
+    console.log(`El EOQ del producto es ${eoq} y la cantidad de pedidos a realizar es de ${numeroPedidos}`)
+    //document.getElementById('txt-eoq').innerHTML = `El EOQ del producto es ${eoq} y la cantidad de pedidos a realizar es de ${numeroPedidos}`
 });
